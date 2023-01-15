@@ -1,0 +1,42 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+}
+.container {
+  max-width: 75vw;
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+}
+
+input {
+  height: 32px;
+  margin-bottom: 4px;
+  padding: 0px 8px;
+  background-color: whitesmoke;
+  border: 1px solid darkgray;
+  border-radius: 6px;
+}
+
+button {
+  height: 32px;
+  background-color: darkslateblue;
+  border: 1px solid darkslategray;
+  border-radius: 6px;
+  color: white;
+}
+
+.sheetCard {
+  margin-bottom: 4px;
+  padding: 0px 8px;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+}

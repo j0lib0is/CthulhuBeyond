@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SheetBuilder = (props) => {
-  
-  // Expand props
-  const { submitHandler, changeHandler, sheetValues } = props;
+export default function SheetBuilder(props) {
+
+  // Props
+  const { changeHandler, submitHandler, sheetValues } = props;
 
   // Functions
   const onChange = (e) => {
@@ -128,5 +128,3 @@ const SheetBuilder = (props) => {
     </div>
   );
 };
-
-export default SheetBuilder;

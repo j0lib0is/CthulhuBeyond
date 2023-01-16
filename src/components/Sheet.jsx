@@ -1,9 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Sheet = (props) => {
-  
-  // Expand props
+export default function Sheet(props) {
+
+  // Props
   const { sheet } = props;
+
+  let navigate = useNavigate();
 
   return (
     <div>
@@ -16,9 +19,8 @@ const Sheet = (props) => {
         <div className='stat'><h5>Strength:</h5><p>{sheet.strength}</p></div>
         <div className='stat'><h5>Dexterity:</h5><p>{sheet.dexterity}</p></div>
         <div className='stat'><h5>Constitution:</h5><p>{sheet.constitution}</p></div>
+        <button onClick={() => navigate(`/character/${sheet.id}`)}>View Character</button>
       </div>
     </div>
   );
 };
-
-export default Sheet;

@@ -1,9 +1,12 @@
 import './App.css'
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-// Components
-import SheetBuilder from './components/SheetBuilder';
-import SheetList from './components/SheetList';
+// Pages
+import Home from './pages/Home';
+import Characters from './pages/Characters';
+import CharacterSheet from './pages/CharacterSheet';
+import NewCharacter from './pages/NewCharacter';
 
 // Defaults
 const defaultSheetValues = {
@@ -83,18 +86,41 @@ export default function App() {
 
   return (
     <div className='wrapper'>
-      <div className='container'>
-        <header>
-          <h1>My Character Sheets</h1>
-          <button>New Character</button>
-        </header>
-        <SheetBuilder
-          submitHandler={submitHandler}
-          changeHandler={changeHandler}
-          sheetValues={sheetValues}
-        />
-        <SheetList sheetList={sheetList} />
-      </div>
+      <Router>
+        <nav>
+          <Link to='/'>Home</Link>
+          <Link to='/characters'>My Characters</Link>
+          <Link to='/new-character'>New Character</Link>
+        </nav>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/characters' element={
+            <Characters
+              sheetList={sheetList}
+            />
+          } />
+          <Route path='/character/:characterId' element={
+            <CharacterSheet
+              sheetList={sheetList}
+              changeHandler={changeHandler}
+              submitHandler={submitHandler}
+            />
+          } />
+          <Route path='/new-character' element={
+            <NewCharacter
+              sheetList={sheetList}
+              setSheetList={setSheetList}
+              sheetValues={sheetValues}
+              changeHandler={changeHandler}
+              submitHandler={submitHandler}
+            />
+          } />
+          <Route path='*' element={<Error />} />
+        </Routes>
+        <div className='footer'>
+          <p>2023 Copyright Cthulhu Beyond. All rights reserved.</p>
+        </div>
+      </Router>
     </div>
   )
 }

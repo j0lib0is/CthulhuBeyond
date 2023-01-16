@@ -1,30 +1,129 @@
 import React from 'react';
 
 const SheetBuilder = (props) => {
+  
   // Expand props
-  const { name, setName, sheetList, setSheetList } = props;
+  const { submitHandler, changeHandler, sheetValues } = props;
 
   // Functions
-  const nameHandler = (e) => {
-    setName(e.target.value);
-  };
+  const onChange = (e) => {
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.type === 'number' ? +e.target.value : e.target.value;
+    changeHandler(e.target.name, value);
+  }
 
-  const submitHandler = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    const newSheet = {
-      name: name,
-      id: Math.random() * 1000
-    }
-    setSheetList([...sheetList, newSheet])
-    setName('');
-    console.log(newSheet);
-  };
+    submitHandler();
+  }
 
   return (
     <div>
       <form className='form'>
-        <input onChange={nameHandler} value={name} type='text' placeholder='Character Name' className='form-field' />
-        <button onClick={submitHandler} className='submit' type='submit'>Submit</button>
+        <label>
+          <h5>Character Name</h5>
+          <input
+            onChange={onChange}
+            name='characterName'
+            value={sheetValues.characterName}
+            type='text'
+            placeholder='Character Name'
+            className='form-field'
+            id='characterName'
+          />
+        </label>
+
+        <label>
+          <h5>Race</h5>
+          <input
+            onChange={onChange}
+            name='race'
+            value={sheetValues.race}
+            type='text'
+            placeholder='Race'
+            className='form-field'
+            id='race'
+          />
+        </label>
+
+        <label>
+          <h5>Charisma</h5>
+          <input
+            onChange={onChange}
+            name='charisma'
+            value={sheetValues.charisma}
+            type='number'
+            placeholder='Charisma'
+            className='form-field'
+            id='charisma'
+          />
+        </label>
+
+        <label>
+          <h5>Intelligence</h5>
+          <input
+            onChange={onChange}
+            name='intelligence'
+            value={sheetValues.intelligence}
+            type='number'
+            placeholder='Intelligence'
+            className='form-field'
+            id='intelligence'
+          />
+        </label>
+
+        <label>
+          <h5>Wisdom</h5>
+          <input
+            onChange={onChange}
+            name='wisdom'
+            value={sheetValues.wisdom}
+            type='number'
+            placeholder='Wisdom'
+            className='form-field'
+            id='wisdom'
+          />
+        </label>
+
+        <label>
+          <h5>Strength</h5>
+          <input
+            onChange={onChange}
+            name='strength'
+            value={sheetValues.strength}
+            type='number'
+            placeholder='Strength'
+            className='form-field'
+            id='strength'
+          />
+        </label>
+
+        <label>
+          <h5>Dexterity</h5>
+          <input
+            onChange={onChange}
+            name='dexterity'
+            value={sheetValues.dexterity}
+            type='number'
+            placeholder='Dexterity'
+            className='form-field'
+            id='dexterity'
+          />
+        </label>
+
+        <label>
+          <h5>Constitution</h5>
+          <input
+            onChange={onChange}
+            name='constitution'
+            value={sheetValues.constitution}
+            type='number'
+            placeholder='Constitution'
+            className='form-field'
+            id='constitution'
+          />
+        </label>
+
+        <button onClick={onSubmit} className='submit' type='submit'>Submit</button>
       </form>
     </div>
   );

@@ -19,7 +19,7 @@ export default function Sheet(props) {
 
   return (
     <div className='sheetCard'>
-      <h3>{sheet.characterName}</h3>
+      <h4>{sheet.characterName}</h4>
       <p className='race'>{sheet.race}</p>
       <div className='stat'><h5>Charisma:</h5><p>{sheet.charisma}</p></div>
       <div className='stat'><h5>Intelligence:</h5><p>{sheet.intelligence}</p></div>

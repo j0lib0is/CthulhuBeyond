@@ -1,9 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SheetBuilder(props) {
 
   // Props
   const { changeHandler, submitHandler, sheetValues } = props;
+
+  // Router
+  let navigate = useNavigate();
 
   // Functions
   const onChange = (e) => {
@@ -14,10 +18,11 @@ export default function SheetBuilder(props) {
   const onSubmit = (e) => {
     e.preventDefault();
     submitHandler();
+    navigate('/characters');
   }
 
   return (
-    <div>
+    <>
       <form className='form'>
         <label>
           <h5>Character Name</h5>
@@ -125,6 +130,6 @@ export default function SheetBuilder(props) {
 
         <button onClick={onSubmit} className='submit' type='submit'>Submit</button>
       </form>
-    </div>
+    </>
   );
 };

@@ -1,17 +1,19 @@
 import React from 'react';
 
 // Components
-import Sheet from './Sheet';
+import SheetCard from './SheetCard';
 
 export default function SheetList(props) {
 
   // Props
-  const { sheetList } = props;
+  const { sheetList, setSheetList } = props;
 
   return (
-    <div>
+    <div className='sheetList'>
       {sheetList.map(sheet => (
-        <Sheet
+        <SheetCard
+          sheetList={sheetList}
+          setSheetList={setSheetList}
           sheet={sheet}
           key={sheet.id}
         />

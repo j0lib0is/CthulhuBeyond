@@ -3,13 +3,18 @@ import React from 'react';
 export default function Home() {
 
   return (
-    <div className='wrapper'>
-      <div className='container'>
-        <header>
+    <>
+      <header>
+        <div className='center-text'>
           <h1>Welcome to Cthulhu Beyond</h1>
-        </header>
-        <p>To get started, sign up or log in.</p>
-      </div>
-    </div>
+          <p>To get started, create your first character.</p>
+        </div>
+      </header>
+      <section>
+        <div className='center-content'>
+          <button onClick={() => { navigate('/new-character') }}>Create New Character</button>
+        </div>
+      </section>
+    </>
   )
 }

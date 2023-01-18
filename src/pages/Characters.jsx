@@ -4,19 +4,22 @@ import { useNavigate } from 'react-router-dom';
 // Components
 import SheetList from '../components/SheetList';
 
-export default function Characters({ sheetList }) {
+export default function Characters(props) {
+
+  // Props
+  const { sheetList, setSheetList } = props;
 
   let navigate = useNavigate();
 
   return (
-    <div className='wrapper'>
-      <div className='container'>
-        <header>
-          <h1>My Characters</h1>
-          <button onClick={() => { navigate('/new') }}>Create New Character</button>
-        </header>
-        <SheetList sheetList={sheetList} />
-      </div>
-    </div>
+    <>
+      <header>
+        <h1>My Characters</h1>
+        <button onClick={() => { navigate('/new-character') }}>Create New Character</button>
+      </header>
+      <section>
+        <SheetList sheetList={sheetList} setSheetList={setSheetList} />
+      </section>
+    </>
   )
 }

@@ -18,7 +18,7 @@ const defaultSheetValues = {
   strength: 0,
   dexterity: 0,
   constitution: 0,
-  id: Math.random() * 100000
+  id: 0
 }
 
 export default function App() {
@@ -51,6 +51,8 @@ export default function App() {
   const saveSheetsLocally = () => {
     if (sheetList.length > 0) {
       localStorage.setItem('localSheets', JSON.stringify(sheetList));
+    } else {
+      localStorage.removeItem('localSheets');
     }
   };
 
@@ -77,7 +79,7 @@ export default function App() {
       strength: sheetValues.strength,
       dexterity: sheetValues.dexterity,
       constitution: sheetValues.constitution,
-      id: Math.random() * 100000
+      id: Math.floor(Math.random() * 100000)
     }
     setSheetList([...sheetList, newSheet]);
     setSheetValues(defaultSheetValues);
@@ -85,42 +87,45 @@ export default function App() {
   };
 
   return (
-    <div className='wrapper'>
+    <div className='container'>
       <Router>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/characters'>My Characters</Link>
-          <Link to='/new-character'>New Character</Link>
-        </nav>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/characters' element={
-            <Characters
-              sheetList={sheetList}
-            />
-          } />
-          <Route path='/character/:characterId' element={
-            <CharacterSheet
-              sheetList={sheetList}
-              changeHandler={changeHandler}
-              submitHandler={submitHandler}
-            />
-          } />
-          <Route path='/new-character' element={
-            <NewCharacter
-              sheetList={sheetList}
-              setSheetList={setSheetList}
-              sheetValues={sheetValues}
-              changeHandler={changeHandler}
-              submitHandler={submitHandler}
-            />
-          } />
-          <Route path='*' element={<Error />} />
-        </Routes>
-        <div className='footer'>
-          <p>2023 Copyright Cthulhu Beyond. All rights reserved.</p>
-        </div>
-      </Router>
+      <nav>
+        <Link to='/'>Home</Link>
+        <Link to='/characters'>My Characters</Link>
+        <Link to='/new-character'>New Character</Link>
+      </nav>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/characters' element={
+          <Characters
+            sheetList={sheetList}
+            setSheetList={setSheetList}
+          />
+        } />
+        <Route path='/character/:characterId' element={
+          <CharacterSheet
+            sheetList={sheetList}
+            sheetValues={sheetValues}
+            setSheetValues={setSheetValues}
+            changeHandler={changeHandler}
+            submitHandler={submitHandler}
+          />
+        } />
+        <Route path='/new-character' element={
+          <NewCharacter
+            sheetList={sheetList}
+            setSheetList={setSheetList}
+            sheetValues={sheetValues}
+            changeHandler={changeHandler}
+            submitHandler={submitHandler}
+          />
+        } />
+        <Route path='*' element={<Error />} />
+      </Routes>
+      <div className='footer'>
+        <p>2023 Copyright Cthulhu Beyond. All rights reserved.</p>
+      </div>
+    </Router>
     </div>
   )
 }

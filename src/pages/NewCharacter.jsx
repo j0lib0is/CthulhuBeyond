@@ -9,17 +9,19 @@ export default function NewCharacter(props) {
   const { sheetList, setSheetList, sheetValues, changeHandler, submitHandler } = props;
 
   return (
-    <div className='wrapper'>
-      <div className='container'>
-        <header>
-          <h1>Build a New Character</h1>
-        </header>
-        <SheetBuilder
-          changeHandler={changeHandler}
-          submitHandler={submitHandler}
-          sheetValues={sheetValues}
-        />
-      </div>
-    </div>
+    <>
+      <header>
+        <h1>Build a New Character</h1>
+      </header>
+      <section>
+        <div className='narrow-container'>
+          <SheetBuilder
+            changeHandler={changeHandler}
+            submitHandler={submitHandler}
+            sheetValues={sheetValues}
+          />
+        </div>
+      </section>
+    </>
   )
 }

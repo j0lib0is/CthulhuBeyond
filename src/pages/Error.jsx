@@ -4,10 +4,12 @@ export default function Error(props) {
 
   return (
     <>
-      <header>
-        <h1>Error! Page not found.</h1>
+      <header className='text-center'>
+        <div className='p-8'>
+          <h1 className='text-4xl font-bold'>Error! Page not found.</h1>
+        </div>
       </header>
-      <section></section>
+      <section className='p-8'></section>
     </>
   )
 }

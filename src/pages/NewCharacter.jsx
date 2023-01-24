@@ -10,11 +10,13 @@ export default function NewCharacter(props) {
 
   return (
     <>
-      <header>
-        <h1>Build a New Character</h1>
+      <header className='text-center'>
+        <div className='p-8'>
+          <h1 className='text-4xl font-bold'>Build a New Character</h1>
+        </div>
       </header>
-      <section>
-        <div className='narrow-container'>
+      <section className='p-8'>
+        <div className='mx-auto'>
           <SheetBuilder
             changeHandler={changeHandler}
             submitHandler={submitHandler}

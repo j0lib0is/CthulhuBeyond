@@ -56,6 +56,7 @@ export default function App() {
     }
   };
 
+
   const getLocalSheets = () => {
     if (localStorage.getItem('localSheets') === null) {
       localStorage.setItem('localSheets', JSON.stringify([]));
@@ -87,45 +88,45 @@ export default function App() {
   };
 
   return (
-    <div className='container'>
+    <div className='max-w-2xl mx-auto'>
       <Router>
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/characters'>My Characters</Link>
-        <Link to='/new-character'>New Character</Link>
-      </nav>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/characters' element={
-          <Characters
-            sheetList={sheetList}
-            setSheetList={setSheetList}
-          />
-        } />
-        <Route path='/character/:characterId' element={
-          <CharacterSheet
-            sheetList={sheetList}
-            sheetValues={sheetValues}
-            setSheetValues={setSheetValues}
-            changeHandler={changeHandler}
-            submitHandler={submitHandler}
-          />
-        } />
-        <Route path='/new-character' element={
-          <NewCharacter
-            sheetList={sheetList}
-            setSheetList={setSheetList}
-            sheetValues={sheetValues}
-            changeHandler={changeHandler}
-            submitHandler={submitHandler}
-          />
-        } />
-        <Route path='*' element={<Error />} />
-      </Routes>
-      <div className='footer'>
-        <p>2023 Copyright Cthulhu Beyond. All rights reserved.</p>
-      </div>
-    </Router>
+        <nav className='w-full flex justify-center p-4'>
+          <Link className='mx-4 text-center' to='/'>Home</Link>
+          <Link className='mx-4 text-center' to='/characters'>My Characters</Link>
+          <Link className='mx-4 text-center' to='/new-character'>New Character</Link>
+        </nav>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/characters' element={
+            <Characters
+              sheetList={sheetList}
+              setSheetList={setSheetList}
+            />
+          } />
+          <Route path='/character/:characterId' element={
+            <CharacterSheet
+              sheetList={sheetList}
+              sheetValues={sheetValues}
+              setSheetValues={setSheetValues}
+              changeHandler={changeHandler}
+              submitHandler={submitHandler}
+            />
+          } />
+          <Route path='/new-character' element={
+            <NewCharacter
+              sheetList={sheetList}
+              setSheetList={setSheetList}
+              sheetValues={sheetValues}
+              changeHandler={changeHandler}
+              submitHandler={submitHandler}
+            />
+          } />
+          <Route path='*' element={<Error />} />
+        </Routes>
+        <div className='text-center p-4'>
+          <p>2023 Copyright Cthulhu Beyond. All rights reserved.</p>
+        </div>
+      </Router>
     </div>
   )
 }

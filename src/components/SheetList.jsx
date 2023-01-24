@@ -9,7 +9,7 @@ export default function SheetList(props) {
   const { sheetList, setSheetList } = props;
 
   return (
-    <div className='sheetList'>
+    <div className='grid grid-cols-3 gap-4'>
       {sheetList.map(sheet => (
         <SheetCard
           sheetList={sheetList}

@@ -35,19 +35,21 @@ export default function CharacterSheet(props) {
 
   return (
     <>
-      <header>
-        <h1>{character.characterName}</h1>
-        <p>Race: {character.race}</p>
-        <p>Charisma: {character.charisma}</p>
-        <p>Intelligence: {character.intelligence}</p>
-        <p>Wisdom: {character.wisdom}</p>
-        <p>Strength: {character.strength}</p>
-        <p>Dexterity: {character.dexterity}</p>
-        <p>Constitution: {character.constitution}</p>
+      <header className='text-center'>
+        <div className='p-8'>
+          <h1 className='text-4xl font-bold'>{character.characterName}</h1>
+          <h2 className='text-lg font-semibold mb-4'>{character.race}</h2>
+          <p>Charisma: {character.charisma}</p>
+          <p>Intelligence: {character.intelligence}</p>
+          <p>Wisdom: {character.wisdom}</p>
+          <p>Strength: {character.strength}</p>
+          <p>Dexterity: {character.dexterity}</p>
+          <p>Constitution: {character.constitution}</p>
+        </div>
       </header>
-      <section>
-        <div className='narrow-container'>
-          <form className='form'>
+      <section className='p-8'>
+        <div>
+          <form className='mx-auto max-w-sm bg-gray-700 border-solid border-1 border-gray-300 rounded-md p-4'>
           <label>
             <h5>Character Name</h5>
             <input
@@ -56,7 +58,7 @@ export default function CharacterSheet(props) {
               value={character.characterName || ''}
               type='text'
               placeholder='Character Name'
-              className='form-field'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm'
               id='characterName'
             />
           </label>
@@ -69,7 +71,7 @@ export default function CharacterSheet(props) {
               value={character.race || ''}
               type='text'
               placeholder='Race'
-              className='form-field'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm'
               id='race'
             />
           </label>
@@ -82,7 +84,7 @@ export default function CharacterSheet(props) {
               value={character.charisma || 0}
               type='number'
               placeholder='Charisma'
-              className='form-field'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm'
               id='charisma'
             />
           </label>
@@ -95,7 +97,7 @@ export default function CharacterSheet(props) {
               value={character.intelligence || 0}
               type='number'
               placeholder='Intelligence'
-              className='form-field'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm-purple-500 focus:ring-purple-500 sm:text-sm'
               id='intelligence'
             />
           </label>
@@ -108,7 +110,7 @@ export default function CharacterSheet(props) {
               value={character.wisdom || 0}
               type='number'
               placeholder='Wisdom'
-              className='form-field'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm-purple-500 focus:ring-purple-500 sm:text-sm'
               id='wisdom'
             />
           </label>
@@ -121,7 +123,7 @@ export default function CharacterSheet(props) {
               value={character.strength || 0}
               type='number'
               placeholder='Strength'
-              className='form-field'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm-purple-500 focus:ring-purple-500 sm:text-sm'
               id='strength'
             />
           </label>
@@ -134,7 +136,7 @@ export default function CharacterSheet(props) {
               value={character.dexterity || 0}
               type='number'
               placeholder='Dexterity'
-              className='form-field'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm'
               id='dexterity'
             />
           </label>
@@ -147,12 +149,12 @@ export default function CharacterSheet(props) {
               value={character.constitution || 0}
               type='number'
               placeholder='Constitution'
-              className='form-field'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm'
               id='constitution'
             />
           </label>
     
-          <button onClick={onSubmit} className='submit' type='submit'>Save</button>
+          <button className='mt-4 w-full bg-purple-500 text-white px-8 py-1 rounded-md' onClick={onSubmit} type='submit'>Save</button>
         </form>
         </div>
       </section>

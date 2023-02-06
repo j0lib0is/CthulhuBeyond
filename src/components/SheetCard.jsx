@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+// Import Context
+import { SheetListContext } from '../context/SheetListContext';
 
 export default function Sheet(props) {
 
   // Props
-  const { sheetList, setSheetList, sheet } = props;
-  
+  const { sheet } = props;
+  const [sheetList, setSheetList] = useContext(SheetListContext);
+
   // Routes
   let navigate = useNavigate();
 

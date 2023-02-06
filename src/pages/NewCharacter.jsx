@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-// Components
+// Import Components
 import SheetBuilder from '../components/SheetBuilder';
 
 export default function NewCharacter(props) {
 
   // Props
-  const { sheetList, setSheetList, sheetValues, changeHandler, submitHandler } = props;
+  const { sheetValues, changeHandler, submitHandler } = props;
 
   return (
     <>

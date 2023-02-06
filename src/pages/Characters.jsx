@@ -1,14 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Components
+// Import Components
 import SheetList from '../components/SheetList';
 
-export default function Characters(props) {
-
-  // Props
-  const { sheetList, setSheetList } = props;
-
+export default function Characters() {
+  
   // Routes
   let navigate = useNavigate();
 
@@ -21,7 +18,7 @@ export default function Characters(props) {
         </div>
       </header>
       <section className='p-8'>
-        <SheetList sheetList={sheetList} setSheetList={setSheetList} />
+        <SheetList />
       </section>
     </>
   )

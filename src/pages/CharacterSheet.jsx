@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export default function CharacterSheet(props) {
+// Import Context
+import { SheetListContext } from '../context/SheetListContext';
+
+export default function CharacterSheet() {
 
   // Props
-  const { sheetList, submitHandler } = props;
+  const [sheetList] = useContext(SheetListContext);
 
   // State
   const [character, setCharacter] = useState({});
@@ -13,7 +16,6 @@ export default function CharacterSheet(props) {
   let { characterId } = useParams();
   let navigate = useNavigate();
   
-
   // Use Effect
   useEffect(() => {
     const foundCharacter = sheetList.find(sheet => sheet.id == { characterId }.characterId);
